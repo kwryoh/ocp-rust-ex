@@ -21,7 +21,7 @@
             "env": {
                 "PORT": "8080",
                 "SECOND_PORT": "8888",
-                "RESPONSE": "Hello OpenShift!"
+                "RESPONSE": "Hello OpenShift!\n"
             }
         }
     ]
