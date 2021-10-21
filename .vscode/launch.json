@@ -1,0 +1,28 @@
+
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=ocp_rust_ex",
+                    "--package=ocp_rust_ex",
+                    "--manifest-path=Cargo.toml"
+                ],
+                "filter": {
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "env": {
+                "PORT": "8080",
+                "SECOND_PORT": "8888",
+                "RESPONSE": "Hello OpenShift!"
+            }
+        }
+    ]
+}
