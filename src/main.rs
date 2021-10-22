@@ -35,14 +35,21 @@ async fn index(req: Request<Body>) -> Result<Response<Body>, Infallible> {
     }
 
     // Set response body
-    let response = match std::env::var("RESPONSE") {
+    let body = match std::env::var("RESPONSE") {
         Ok(val) => val,
         Err(_) => "Hello, OpenShift!\n".to_string(),
     };
-    info!("RESPONSE: {}", response);
+    info!("RESPONSE: {}", body);
+
+    let response = Response::builder()
+                    .status(200)
+                    .header("X-Foo", "value")
+                    .header("Set-Cookie", "foo=bar")
+                    .body(Body::from(body))
+                    .unwrap();
 
     // Return response
-    Ok(Response::new(Body::from(response)))
+    Ok(response)
 }
 
 
